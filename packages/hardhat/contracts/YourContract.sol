@@ -1,3 +1,14 @@
+//Mapping from address to number
+mapping(address => uint) public userNumbers;
+event NumberUpdated(address indexed user, uint number);
+
+//Function to store a number
+function storeNumber(uint _number) public {
+      userNumbers[msg.sender] = _number;
+      emit NumberUpdated(msg.sender, _number);
+    }
+
+
 //SPDX-License-Identifier: MIT
 pragma solidity >=0.8.0 <0.9.0;
 
